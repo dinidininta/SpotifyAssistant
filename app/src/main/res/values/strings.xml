@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Spotify Assistant</string>
+    <string name="label_display_name">Name: </string>
+    <string name="display_name">displayName</string>
+    <string name="label_birthdate">Birthdate: </string>
+    <string name="birthdate">birthdate</string>
+    <string name="label_country">Country: </string>
+    <string name="country">country</string>
+    <string name="label_email">Email: </string>
+    <string name="email">email</string>
 </resources>
