@@ -3,6 +3,7 @@ package com.dinidininta.spotifyassistant.services;
 import android.content.SharedPreferences;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.dinidininta.spotifyassistant.POJO.Playlists;
@@ -17,7 +18,7 @@ public class PlaylistService {
     private static final String ENDPOINT = "https://api.spotify.com/v1/me/playlists";
     private SharedPreferences mSharedPreferences;
     private RequestQueue mQueue;
-    private Playlists playlist;
+    private Playlists playlists;
 
     public PlaylistService(RequestQueue queue, SharedPreferences sharedPreferences){
         mQueue = queue;
@@ -25,13 +26,14 @@ public class PlaylistService {
     }
 
     public Playlists getPlaylists(){
-        return playlist;
+        return playlists;
     }
 
     public void get(final VolleyCallBack callBack){
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(ENDPOINT, null, response -> {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, ENDPOINT, null, response -> {
             Gson gson = new Gson();
-            gson.fromJson(response.toString(), Playlists.class);
+            playlists = gson.fromJson(response.toString(), Playlists.class);
+            callBack.onSuccess();
         }, error -> get(() -> {
 
         })){

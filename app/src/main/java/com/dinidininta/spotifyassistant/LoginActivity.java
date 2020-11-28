@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                     break;
 
                 case ERROR:
+                    Log.d("LOGGING IN", response.getError());
                     break;
 
                     default:
