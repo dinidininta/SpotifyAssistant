@@ -13,4 +13,7 @@
     <string name="playlist_image_description">Playlist image</string>
     <string name="track_title">Track title</string>
     <string name="track_image_description">Track image</string>
+    <string name="open_assistant">Open Assistant</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 </resources>

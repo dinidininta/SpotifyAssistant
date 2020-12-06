@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         TextView country = findViewById(R.id.country);
         TextView email = findViewById(R.id.email);
         Button openPlaylist = findViewById(R.id.btn_open_playlist);
+        Button openAssistant = findViewById(R.id.btn_open_assistant);
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
         displayName.setText(sharedPreferences.getString("displayName", ""));
@@ -29,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
         openPlaylist.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, PlaylistsActivity.class);
+            startActivity(intent);
+        });
+
+        openAssistant.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AssistantActivity.class);
             startActivity(intent);
         });
     }

@@ -100,4 +100,14 @@
         app:layout_constraintEnd_toStartOf="parent"
         android:layout_marginTop="40dp" />
 
+    <Button
+        android:id="@+id/btn_open_assistant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/open_assistant"
+        app:layout_constraintTop_toBottomOf="@+id/btn_open_playlist"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        android:layout_marginTop="40dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
