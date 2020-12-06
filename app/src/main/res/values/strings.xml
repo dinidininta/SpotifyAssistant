@@ -11,4 +11,6 @@
     <string name="open_playlist">Open Playlist</string>
     <string name="playlist_title">Playlist title</string>
     <string name="playlist_image_description">Playlist image</string>
+    <string name="track_title">Track title</string>
+    <string name="track_image_description">Track image</string>
 </resources>

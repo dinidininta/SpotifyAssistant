@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -46,6 +47,7 @@ public class PlaylistsActivity extends AppCompatActivity {
             editor = getSharedPreferences("SPOTIFY", 0).edit();
             editor.putString("playlistHref", playlist.href);
             editor.commit();
+            startTrackListActivity();
         });
     }
 
@@ -55,5 +57,10 @@ public class PlaylistsActivity extends AppCompatActivity {
             playlists = playlistService.getPlaylists();
             showRecyclerList();
         });
+    }
+
+    private void startTrackListActivity(){
+        Intent intent = new Intent(PlaylistsActivity.this, TracklistActivity.class);
+        startActivity(intent);
     }
 }
