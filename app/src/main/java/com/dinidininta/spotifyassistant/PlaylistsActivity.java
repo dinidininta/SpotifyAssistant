@@ -20,6 +20,7 @@ public class PlaylistsActivity extends AppCompatActivity {
     private RecyclerView rvPlaylists;
     private ArrayList<Playlist> playlists = new ArrayList<>();
     private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor editor;
 
     private RequestQueue queue;
 
@@ -42,6 +43,9 @@ public class PlaylistsActivity extends AppCompatActivity {
         rvPlaylists.setAdapter(playlistsAdapter);
         playlistsAdapter.setOnItemClickCallback(playlist -> {
             Toast.makeText(PlaylistsActivity.this, "You clicked " + playlist.uri, Toast.LENGTH_SHORT).show();
+            editor = getSharedPreferences("SPOTIFY", 0).edit();
+            editor.putString("playlistHref", playlist.href);
+            editor.commit();
         });
     }
 
