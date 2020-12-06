@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dinidininta.spotifyassistant.POJO.Playlist;
-import com.dinidininta.spotifyassistant.POJO.Playlists;
 import com.dinidininta.spotifyassistant.R;
 
 import java.util.ArrayList;

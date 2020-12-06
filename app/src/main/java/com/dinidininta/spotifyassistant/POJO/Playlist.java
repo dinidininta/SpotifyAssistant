@@ -5,4 +5,5 @@ public class Playlist {
     public String name;
     public boolean isPublic;
     public String uri;
+    public String href;
 }

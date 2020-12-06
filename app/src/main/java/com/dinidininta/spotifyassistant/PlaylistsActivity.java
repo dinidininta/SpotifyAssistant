@@ -10,7 +10,6 @@ import android.os.Bundle;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.dinidininta.spotifyassistant.POJO.Playlist;
-import com.dinidininta.spotifyassistant.POJO.Playlists;
 import com.dinidininta.spotifyassistant.adapters.PlaylistsAdapter;
 import com.dinidininta.spotifyassistant.services.PlaylistService;
 
@@ -45,16 +44,7 @@ public class PlaylistsActivity extends AppCompatActivity {
     private void fetchUserPlaylists(){
         PlaylistService playlistService = new PlaylistService(queue, mSharedPreferences);
         playlistService.get(() -> {
-            Playlists fetchedPlaylists = playlistService.getPlaylists();
-            for(int i = 0; i < fetchedPlaylists.items.length; i++){
-                Playlist item = fetchedPlaylists.items[i];
-                Playlist fetchedPlaylist = new Playlist();
-                fetchedPlaylist.id = item.id;
-                fetchedPlaylist.name = item.name;
-                fetchedPlaylist.uri = item.uri;
-                fetchedPlaylist.isPublic = item.isPublic;
-                playlists.add(fetchedPlaylist);
-            }
+            playlists = playlistService.getPlaylists();
             showRecyclerList();
         });
     }
