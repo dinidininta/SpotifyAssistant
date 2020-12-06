@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String CLIENT_ID = "83f153aac4c34b1290eb45d77a2521f5";
     private static final String REDIRECT_URI = "com.dinidininta.spotifyassistant://callback";
-    private static final String SCOPES = "user-read-email,user-read-private,playlist-read-private,user-library-read";
+    private static final String SCOPES = "user-read-email,user-read-private,playlist-read-private,user-library-read,user-read-currently-playing,user-read-playback-state,user-modify-playback-state";
     private static final int REQUEST_CODE = 412;
 
     @Override
