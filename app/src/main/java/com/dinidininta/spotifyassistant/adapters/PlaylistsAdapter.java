@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class PlaylistsAdapter extends RecyclerView.Adapter<PlaylistsAdapter.ListViewHolder> {
     private ArrayList<Playlist> playlists;
+    private OnItemClickCallback onItemClickCallback;
 
     public PlaylistsAdapter(ArrayList<Playlist> list){
         this.playlists = list;
@@ -28,10 +29,17 @@ public class PlaylistsAdapter extends RecyclerView.Adapter<PlaylistsAdapter.List
         return new ListViewHolder(view);
     }
 
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
         Playlist playlist = playlists.get(position);
         holder.playlistTitle.setText(playlist.name);
+        holder.itemView.setOnClickListener(v -> {
+            onItemClickCallback.onItemClicked(playlists.get(position));
+        });
     }
 
     @Override
@@ -48,5 +56,9 @@ public class PlaylistsAdapter extends RecyclerView.Adapter<PlaylistsAdapter.List
             playlistImage = itemView.findViewById(R.id.playlist_image);
             playlistTitle = itemView.findViewById(R.id.playlist_title);
         }
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(Playlist playlist);
     }
 }

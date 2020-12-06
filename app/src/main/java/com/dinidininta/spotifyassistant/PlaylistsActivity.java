@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -39,6 +40,9 @@ public class PlaylistsActivity extends AppCompatActivity {
         rvPlaylists.setLayoutManager(new LinearLayoutManager(this));
         PlaylistsAdapter playlistsAdapter = new PlaylistsAdapter(playlists);
         rvPlaylists.setAdapter(playlistsAdapter);
+        playlistsAdapter.setOnItemClickCallback(playlist -> {
+            Toast.makeText(PlaylistsActivity.this, "You clicked " + playlist.uri, Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void fetchUserPlaylists(){
